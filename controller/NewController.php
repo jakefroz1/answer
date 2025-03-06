@@ -54,7 +54,7 @@ class NewController extends Controller
             ->where('s_id', '=', $steps)
             ->first();
 
-            $nowQuestion->updateQA($id, $steps, $answer);
+        $nowQuestion->updateQA($id, $steps, $answer);
 
         // 判断是否流程结束，未结束时更新流程（或在其他地方更新）
         // $count = Steps::count();
