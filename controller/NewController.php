@@ -42,7 +42,7 @@ class NewController extends Controller
     }
 
 
-    // 当前问卷更新
+     // 当前问卷更新
     public function nowAnswer($id,$steps,$answer)
     {
         if (!$answer) {
@@ -54,7 +54,15 @@ class NewController extends Controller
             ->where('s_id', '=', $steps)
             ->first();
 
-        return $nowQuestion->updateQA($id, $steps, $answer);
+            $nowQuestion->updateQA($id, $steps, $answer);
+
+        // 判断是否流程结束，未结束时更新流程（或在其他地方更新）
+        // $count = Steps::count();
+        // if($steps == $count+1){
+        //     return 'finish';
+        // }
+
+        // $this->nowSteps($id, $steps);
 
     }
 }
